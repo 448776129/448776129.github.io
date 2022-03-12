@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="cn">
+
+<head>
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="九贝博客-前端技术博客 分享快乐，分享生活|前端博客|前端技术">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="theme-version" content="1.3.0">
+    <meta name="root" content="/">
+    <link rel="dns-prefetch" href="http://nnbv.cn">
+    <!--SEO-->
+
+<meta name="keywords" content="九贝博客,九贝,九贝前端,前端文字,前端博客,九贝前端,九贝技术博客" />
+
+
+<meta name="description" content="利用 GitHub Action 自动部署 Hexo 博客前言使用 Hexo 写博客，每次写完都要生成静态文件，而且 Hexo 基于 Node.JS，不能再手机上更新。
+所以每次提交过后发现自己..." />
+
+
+<meta name="robots" content="all" />
+<meta name="google" content="all" />
+<meta name="googlebot" content="all" />
+<meta name="verify" content="all" />
+    <!--Title-->
+
+<title>
+    
+    利用 GitHub Action 自动部署 Hexo 博客 |
+    
+    九贝博客-前端技术博客 分享快乐，分享生活|前端博客|前端技术
+</title>
+
+<link rel="alternate" href="/atom.xml" title="九贝博客-前端技术博客 分享快乐，分享生活|前端博客|前端技术" type="application/atom+xml">
+
+
+    
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.7.0.css">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash.css">
+
+    
+<div class="hide">
+    <script type="text/javascript">
+    var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+    document.write(unescape("%3Cspan class='cnzz_stat_icon_1280812459 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1280812459%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+</div>
+
+
+
+
+    
+
+<meta name="generator" content="Hexo 5.4.1"></head>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+<body>
+    <header class="main-header"  style="background-image:url(
+    https://hexo-theme-snippet-1251680922.cos.ap-beijing.myqcloud.com/img/banner.jpg)"
+     >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='nine bei'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+            <!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+            <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+        </div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                        <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://nnbv.cn">
+                        九贝博客-前端技术博客 分享快乐，分享生活|前端博客|前端技术</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/"><i class="fa "></i>
+                                Home</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/前端/"><i class="fa "></i>
+                                前端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/后端/"><i class="fa "></i>
+                                后端</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/categories/工具/"><i class="fa "></i>
+                                工具</a>
+                        </li>
+                        
+                        <li role="presentation" class="text-center">
+                            <a href="/archives/"><i class="fa "></i>
+                                时间轴</a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="利用 GitHub Action 自动部署 Hexo 博客">
+            
+            利用 GitHub Action 自动部署 Hexo 博客
+            
+        </h1>
+        <div class="post-meta">
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+        </span>
+    </span>
+    
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-clock-o"></i>
+        <span class="date-meta">
+            2022/03/12</span>
+    </span>
+    
+    <span class="fa-wrap">
+        <i class="fa fa-eye"></i>
+        <span id="busuanzi_value_page_pv"></span>
+    </span>
+    
+    
+</div>
+        
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="利用-GitHub-Action-自动部署-Hexo-博客"><a href="#利用-GitHub-Action-自动部署-Hexo-博客" class="headerlink" title="利用 GitHub Action 自动部署 Hexo 博客"></a>利用 GitHub Action 自动部署 Hexo 博客</h3><p>前言<br>使用 Hexo 写博客，每次写完都要生成静态文件，而且 Hexo 基于 Node.JS，不能再手机上更新。</p>
+<p>所以每次提交过后发现自己码错字了，或是有同学来换友链，总是要麻烦的改文件，再上传。</p>
+<p>那么，Hexo 如何进行在线更新呢？</p>
+<p>如果使用服务器的话，就丧失了使用 Hexo 的最大的优点——节省开支，而且还不如用 Typecho/WordPress 呢。</p>
+<p>后来突然想到 GitHub Action 可以实现在线打包等操作，就想试试在线生成 Hexo 博客。</p>
+<p>行动<br>获取 GitHub 令牌<br>登录你的 GitHub 账号，点击右上角的头像，点击「Settings」进入设置。</p>
+<p>点击菜单栏中的「Developer settings」进入开发者设置。</p>
+<p>点击菜单栏中的「Personal access tokens」进入令牌设置。</p>
+<p>点击「Generate new token」新建一个令牌。</p>
+<p>勾选全部的权限，名称随意。</p>
+<p>并点击「Generate token」完成生成。</p>
+<p>记得保存好这个令牌，它不会再次出现。</p>
+<p>新建仓库<br>使用 GitHub 新建一个存放 Hexo 文件的仓库，要选私有仓库！</p>
+<p>不要勾选任何的初始化仓库选项！</p>
+<p>在 Hexo 根目录中删除 .git 文件夹(隐藏文件夹)，删除主题目录下的 .git 文件夹。</p>
+<p>然后在 Hexo 根目录下使用 cmd 或终端运行以下命令：</p>
+<p>git init # 新建 Git 仓库<br>git add -A  # 暂存所有文件<br>git commit -m “Create” # 提交更新<br>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/%E7%94%A8%E6%88%B7%E5%90%8D/%E6%96%B0%E5%BB%BA%E7%9A%84%E7%A7%81%E6%9C%89%E4%BB%93%E5%BA%93%E5%90%8D.git">https://github.com/用户名/新建的私有仓库名.git</a> # 新增远程链接<br>git push -u origin master # 推送至远程仓库<br>配置 Github Action<br>进入仓库页面，点击「Action」，点击「 set up a workflow yourself 」。</p>
+<p>在左侧代码编辑器中将下方提供的代码粘贴进入代码框。</p>
+<p>请仔细阅读注释，修改最后几行的提交设置。</p>
+<p>确认无误后点击右上角的「Start Commit」。</p>
+<p>此处注意！「公开的仓库名」是生成后文件提交的公开仓库，供「GitHub Pages」「Vercel」等服务使用！</p>
+<p>name: Deploy # 部署</p>
+<p>on: # 触发条件<br>  push:<br>    branches:<br>      - master # 推送到 master 分支</p>
+<p>  release:<br>    types:<br>      - published # 推送新版本号</p>
+<p>  workflow_dispatch: # 手动触发</p>
+<p>jobs:<br>  build:<br>    runs-on: ubuntu-latest</p>
+<pre><code>steps:
+- name: Checkout # Checkout 仓库
+  uses: actions/checkout@v2
+  with:
+    ref: master
+
+- name: Setup Node # 安装 Node.js
+  uses: actions/setup-node@v1
+  with:
+    node-version: &quot;12.x&quot;
+
+- name: Install Hexo # 安装 Hexo
+  run: |
+    npm install hexo-cli -g
+    
+- name: Cache Modules # 缓存 Node 插件
+  uses: actions/cache@v1
+  id: cache-modules
+  with:
+    path: node_modules
+    key: $&#123;&#123;runner.OS&#125;&#125;-$&#123;&#123;hashFiles('**/package-lock.json')&#125;&#125;
+
+- name: Install Dependencies # 如果没有缓存或 插件有更新，则安装插件
+  if: steps.cache-modules.outputs.cache-hit != &#39;true&#39;
+  run: | # 如果仓库里没有 package-lock.json，上传一下，npm ci 必须要有 package-lock.json
+    npm ci
+- name: Generate # 生成
+  run: |
+    hexo clean
+    hexo generate
+- name: Deploy # 部署
+  run: |
+    git config --global user.name &quot;HiFun&quot;
+    git config --global user.email &quot;omycoke@outlook.com&quot;
+    export TZ=&#39;Asia/Shanghai&#39;
+    cd public/
+    git init
+    git add -A
+    git commit -m &quot;Create by workflows&quot;
+    git remote add origin [https://令牌@github.com/用户名/公开的仓库名]
+    git push origin master -f
+</code></pre>
+<p>使用<br>每次更改完文件过后，在 Hexo 根目录运行以下命令：</p>
+<p>git add -A<br>git commit -m “Update”<br>git push origin master<br>也可直接在仓库中 改文件/写博文 效果一样，GitHub 都会为你自动生成文件。</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+            转载声明：
+            商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+<div class="article-nav prev-next-wrap clearfix">
+    
+    <a href="/2022/03/12/vue%E5%88%9B%E5%A7%8B%E4%BA%BA/" class="pre-post btn btn-default" title='(转载）比较详细的采访 Vue 作者尤雨溪'>
+        <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+        <span class="hidden-xs">
+            (转载）比较详细的采访 Vue 作者尤雨溪</span>
+    </a>
+    
+    
+    <a href="/2022/03/12/%E5%B0%8F%E6%8A%80%E5%B7%A7-%E5%9C%A8Windows%E4%B8%8B%E5%88%9B%E5%BB%BA.password%E7%9A%84%E6%96%87%E4%BB%B6/" class="next-post btn btn-default" title='小技巧-在windows下创建.password的文件'>
+        <span class="hidden-lg">下一篇</span>
+        <span class="hidden-xs">
+            小技巧-在windows下创建.password的文件</span><i class="fa fa-angle-right fa-fw"></i>
+    </a>
+    
+</div>
+
+<div id="comments">
+    
+    
+<div class="utteranc">
+  
+  <script
+    src='https://utteranc.es/client.js'
+    repo='shenliyang/snippet-comment'
+    issue-term='pathname'
+    issue-number=''
+    theme='github-light'
+    label=''
+    crossorigin='anonymous'
+    async
+  ></script>
+</div>
+
+
+
+</div>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">
+            Table of Contents
+        </h3>
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8-GitHub-Action-%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2-Hexo-%E5%8D%9A%E5%AE%A2"><span class="toc-text">利用 GitHub Action 自动部署 Hexo 博客</span></a></li></ol>
+        
+    </div>
+</aside>
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+<a id="back-to-top" class="icon-btn hide">
+    <i class="fa fa-chevron-up"></i>
+</a>
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+    Total:
+    <strong id="busuanzi_value_site_pv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    &nbsp; | &nbsp;
+    Visitors:
+    <strong id="busuanzi_value_site_uv">
+        <i class="fa fa-spinner fa-spin"></i>
+    </strong>
+    
+</div>
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy;
+                    2022
+                    
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<script src="/js/app.js?rev=@@hash.js"></script>
+
+</body>
+</html>
