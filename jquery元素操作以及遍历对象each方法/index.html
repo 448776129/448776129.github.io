@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<title>jquery元素操作以及遍历对象each方法 | 蓝白博客-个人生活记录和前端爱好笔记</title>
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+    <meta name="generator" content="Hexo 5.4.1"></head>
+    <body>
+        <div class="container">
+            <header>
+<div class="main">
+<div class="title">
+    <a href="#" class="logo">蓝白博客-个人生活记录和前端爱好笔记</a>
+</div>
+<div class="site-nav">
+    <ul id="menu" class="menu">
+    
+        <li class="menu-item text-underline">
+            <a href="/">主页</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/archives">归档</a>
+        </li>
+    
+        <li class="menu-item text-underline">
+            <a href="/about/">关于</a>
+        </li>
+            
+    </ul>
+</div>
+</div>
+</header>
+            <main class="main">
+                <section class="posts clearfix">
+    <div class="post-wrapper">
+        <article class="post article-entry">
+            <div class="post-title">
+                jquery元素操作以及遍历对象each方法
+            </div>
+            <p class="sub">Jan 02 2023</p>
+            <div class="post-content">
+                <p>1.创建</p>
+<p>2.内部添加 ：<br>  let ele = $(“ <li>我是新创建的</li>“);<br>  $(‘ul’).append(ele); //这个是往后边放进去 类似原生的 appendChlid<br> $(‘ul’).prepend(ele); //这个是放 前面<br>3.外部添加</p>
+<span id="more"></span>
+<p><img src="https://raw.githubusercontent.com/448776129/blogimg/main/1670588000000.png"><img src="https://raw.githubusercontent.com/448776129/blogimg/main/1670588004000.png"></p>
+<p>4.删除元素<br><img src="https://raw.githubusercontent.com/448776129/blogimg/main/1670588048000.png"><img src="https://raw.githubusercontent.com/448776129/blogimg/main/1670588060000.png"></p>
+<hr>
+<p>方法一：<br>遍历对象each方法（长用在dom）<br><img src="https://raw.githubusercontent.com/448776129/blogimg/main/1670587785000.png"><br>写法二：<br>$.each方法 （常用在数据 ）<br><img src="https://raw.githubusercontent.com/448776129/blogimg/main/1670587810000.png"><br>这个既能遍历 数组 也能遍历 对象</p>
+
+            </div>
+        </article>
+    </div>
+
+</section>
+
+
+    <nav class="post-nav">
+        
+            <div class="page-tags">
+                
+            </div>
+        
+    </nav>
+
+
+
+    <nav class="paginator clearfix">
+        
+        
+    </nav>
+
+
+
+            </main>
+            <div class="copyright">
+  <div class="text">Powered By
+    <span>Hexo</span> | Theme <span>Tsu</span> &copy 2022
+  </div>
+</div>
+
+        </div>
+    <div class="back-to-top" id="back-to-top">
+            <i class="iconfont icon-up"></i>
+    </div>
+        
+    </body>
+    
+<script src="/js/jquery-3.3.1.min.js"></script>
+
+    
+<script src="/js/back-to-top.js"></script>
+
+    
+<script src="/js/scroll.js"></script>
+
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+</html>
